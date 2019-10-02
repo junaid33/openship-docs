@@ -1,0 +1,34 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Openship Tech Stack"
+  description="Find out what Openship uses under the hood"
+/>
+
+# Tech Stack
+
+We use a well-documented and well-maintained tech stack so the application can be implemented and customized easily.
+
+## UI Framework
+
+### [Next.js](https://nextjs.org/docs) - [React.js](https://reactjs.org/docs/getting-started.html)
+
+Next.js is a framework for server-side rendered React. With built-in code splitting and simple hosting, it's a great way to build applications.
+
+## Node.js Framework
+
+### [koa.js](https://koajs.com/)
+
+Next.js can be used with a custom server.js file and for this we are using the koa framework. Shopify has many useful koa.js packages such as [@shopify/koa-shopify-auth](https://github.com/Shopify/quilt/tree/master/packages/koa-shopify-auth) and [@shopify/koa-shopify-graphql-proxy](https://github.com/Shopify/quilt/tree/master/packages/koa-shopify-graphql-proxy). We use koa-shopify-auth to install the application and redirect to the shops page and add the shop. We use koa-shopify-graphql-proxy to mount the Shopify GraphQL API client-side so you can access it from the frontend.
+
+## Design System
+
+### [evergreen-ui](https://evergreen.segment.com/components/)
+
+Evergreen is a simple, intuitive component library for React. Internally, it uses [ui-box](https://github.com/segmentio/ui-box) which is our CSS-in-JS solution since it allows you to pass css props directly into the component. If you want to use Emotion or Styled-Components, you can simply add the package and start using it. If you prefer to use basic CSS, you can check out the [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css) and [next-sass](https://github.com/zeit/next-plugins/tree/master/packages/next-sass) loaders.
+
+## GraphQL Client
+
+### [Apollo-client](https://www.apollographql.com/docs/react/)
+
+Apollo is a frontend GraphQL client library. We use this to interact with our backend GraphQL server.

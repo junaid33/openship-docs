@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "openship-docs",
+  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "alias": ["https://openship.org", "openship"],
+  "scope": "openship",
+  "routes": [
+    {
+      "src": "www.openship.org",
+      "status": 301,
+      "headers": { "Location": "https://openship.org" }
+    }
+  ]
+}
