@@ -47,30 +47,30 @@ const DocsHeader = props => {
       height="4rem"
       {...props}
     >
-      <Flex size="100%" px="6" align="center">
-        <Flex align="center" mr={5}>
+      <Flex maxWidth="100%" size="100%" px="4" align="center">
+        <Box flex={1} align="center" mr={3}>
           <Box
             as="a"
             style={{ display: 'block' }}
             href="/"
             aria-label="Openship, Back to homepage"
           >
-            <Box height={50}>
+            <Box maxWidth="200px">
               <Logo color={colorMode === 'dark' ? '#fff' : '#162b4b'} />
             </Box>
           </Box>
-        </Flex>
+        </Box>
 
-        <SearchBox
+        {/* <SearchBox
           display={{ sm: 'none', md: 'block' }}
           visibility="hidden"
           maxWidth="3xl"
           mx="auto"
           flex="1"
-        />
+        /> */}
         <Flex
           flex={{ sm: '1', md: 'none' }}
-          ml={5}
+          ml={3}
           align="center"
           color="gray.500"
           justify="flex-end"
