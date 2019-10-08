@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box } from '@chakra-ui/core';
 
 const Logo = ({ color = '#fff' }) => (
   <svg height="100%" viewBox="0 180 495 110">

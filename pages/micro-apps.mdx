@@ -15,14 +15,8 @@ This tutorial will go over how to build micro applications for your Shopify shop
 import { useState }, React from "react";
 import PropTypes from "prop-types";
 import fetch from "isomorphic-unfetch";
-import {
-  Pane,
-  TextInput,
-  Heading,
-  Text,
-  Spinner,
-  Button
-} from "evergreen-ui";
+import { Pane, TextInput, Heading, Text, Spinner, Button } from "evergreen-ui";
+
 ```
 
 We will be using React Hooks so we import useState. We will be using evergreen-ui to build our UI. And finally, fetch to get our data.
@@ -36,20 +30,13 @@ const Tracking = ({ url }) => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <Pane 
-      elevation={1} 
-      borderRadius="5px" 
-      padding={15} 
-      background="#fff"
-    >
+    <Pane elevation={1} borderRadius="5px" padding={15} background="#fff">
       <Heading size={400} marginBottom={10}>
         Fetch Tracking
       </Heading>
       <Pane display="flex" marginBottom={15}>
         <TextInput
-          onChange={e => 
-          setInput(e.target.value)
-          }
+          onChange={e => setInput(e.target.value)}
           value={input}
           height={24}
           backgroundColor="#F5F6F7 !important"
@@ -59,23 +46,12 @@ const Tracking = ({ url }) => {
           height={24}
           fontSize="13px"
           marginLeft={10}
-          onClick={() => 
-          getTracking(
-            url, 
-            input, 
-            setResult, 
-            setLoading
-           )
-          }
+          onClick={() => getTracking(url, input, setResult, setLoading)}
         >
           Get Tracking
         </Button>
       </Pane>
-      {
-        loading 
-          ? <Spinner size={24} /> 
-          : <Text>{result}</Text>
-      }
+      {loading ? <Spinner size={24} /> : <Text>{result}</Text>}
     </Pane>
   );
 };
@@ -147,8 +123,7 @@ We simply post a graphQL query to the endpoint and set the results to our state.
 After you are finished with the UI and the fetch query, we need to import this component into the shop component. We pass the URL for where the endpoint is mounted.
 
 ```jsx live=false
- <Tracking url={`https://dashboard.openship.org/shopify/${name}/graphql`}
- />
+ <Tracking url={`https://dashboard.openship.org/shopify/${name}/graphql`} />
 ```
 ## Overview
 
