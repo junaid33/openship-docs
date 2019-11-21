@@ -7,7 +7,7 @@ import SEO from "../components/SEO";
 
 # Micro Apps
 
-This tutorial will go over how to build micro applications for your Shopify shop. We will be building the tracking application that is currently on the app.
+This tutorial will go over how to build micro applications for your Shopify shop. We will be building the tracking application that is currently on the application.
 
 ## First, we import the packages we need
 
@@ -15,21 +15,14 @@ This tutorial will go over how to build micro applications for your Shopify shop
 import { useState }, React from "react";
 import PropTypes from "prop-types";
 import fetch from "isomorphic-unfetch";
-import {
-  Pane,
-  TextInput,
-  Heading,
-  Text,
-  Spinner,
-  Button
-} from "evergreen-ui";
+import { Pane, TextInput, Heading, Text, Spinner, Button } from "evergreen-ui";
+
 ```
 
 We will be using React Hooks so we import useState. We will be using evergreen-ui to build our UI. And finally, fetch to get our data.
 
 ## Next, we build the submission form.
 
-<!-- prettier-ignore -->
 ```jsx live=false
 const Tracking = ({ url }) => {
   const [result, setResult] = useState("");
@@ -37,20 +30,13 @@ const Tracking = ({ url }) => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <Pane 
-      elevation={1} 
-      borderRadius="5px" 
-      padding={15} 
-      background="#fff"
-    >
+    <Pane elevation={1} borderRadius="5px" padding={15} background="#fff">
       <Heading size={400} marginBottom={10}>
         Fetch Tracking
       </Heading>
       <Pane display="flex" marginBottom={15}>
         <TextInput
-          onChange={e => 
-          setInput(e.target.value)
-          }
+          onChange={e => setInput(e.target.value)}
           value={input}
           height={24}
           backgroundColor="#F5F6F7 !important"
@@ -60,34 +46,21 @@ const Tracking = ({ url }) => {
           height={24}
           fontSize="13px"
           marginLeft={10}
-          onClick={() => 
-          getTracking(
-            url, 
-            input, 
-            setResult, 
-            setLoading
-           )
-          }
+          onClick={() => getTracking(url, input, setResult, setLoading)}
         >
           Get Tracking
         </Button>
       </Pane>
-      {
-        loading 
-          ? <Spinner size={24} /> 
-          : <Text>{result}</Text>
-      }
+      {loading ? <Spinner size={24} /> : <Text>{result}</Text>}
     </Pane>
   );
 };
 ```
 
-<!-- prettier-ignore -->
-The submission form has an input field and a submit button. We are using 3 states, input value,result, and loading. On submit, we are calling the getTracking funciton.
+The submission form has an input field and a submit button. We are using 3 states, input value, result, and loading. On submit, we are calling the getTracking function.
 
 ## Fetching the GraphQL API
 
-<!-- prettier-ignore -->
 ```javascript
 function getTracking(
   url, 
@@ -135,15 +108,13 @@ function getTracking(
     });
 }
 ```
-
-<!-- prettier-ignore -->
 The getTracking function needs 4 variables: url, input, setResult, and setLoading.
 
-- The url is passed as a prop to the component and we simply pass it the function. The url is the endpoint where your shop's graphQL API is mounted.
+- The url is passed as a prop to the component and we simply pass it in the function. The url is the endpoint where your shop's graphQL API is mounted.
 - Input is what the user has entered in the text field.
 - setResults and setLoading are to change the state and return the results.
 
-We simply post a graphQL query to the endpoint and set the results to our state. You can use the Playground to create and test different queries and mutations. You can click DOCS button on the Playground to get the full Shopify graphQL API spec.
+We simply post a graphQL query to the endpoint and set the results to our state. You can use the Playground to create and test different queries and mutations. You can click the DOCS button on the Playground to get the full Shopify graphQL API spec.
 
 > **Tip:** _GraphQL allows you to autocomplete by clicking cmd+space. This will pull up all the info that a query or mutation can return._
 
@@ -151,13 +122,9 @@ We simply post a graphQL query to the endpoint and set the results to our state.
 
 After you are finished with the UI and the fetch query, we need to import this component into the shop component. We pass the URL for where the endpoint is mounted.
 
-<!-- prettier-ignore -->
 ```jsx live=false
- <Tracking url={`https://dashboard.openship.org/shopify/${name}/graphql`}
- />
+ <Tracking url={`https://dashboard.openship.org/shopify/${name}/graphql`} />
 ```
-
-<!-- prettier-ignore -->
 ## Overview
 
 In this tutorial you got a quick overview about how to make micro apps. You can make a micro apps that can pull up pertaining info about orders, change orders, or even connect to 3rd-party apps you already use like Mailchimp, Zendesk, etc.
